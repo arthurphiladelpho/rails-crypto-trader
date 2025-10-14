@@ -3,9 +3,9 @@ class MarketDataChannel < ApplicationCable::Channel # ActionCable channel for re
     symbol = params[:symbol] || 'BTCUSDT' # Get symbol from params
     interval = params[:interval] || '1m' # Get interval from params
     stream_name = "market_data_#{symbol}_#{interval}" # Unique stream name for this symbol/interval
-    
+
     stream_from stream_name # Subscribe to the stream
-    
+
     # Start WebSocket connection to Binance in a separate thread
     Thread.new do # Run WebSocket in background thread
       @ws_service = BinanceWebsocketService.new(symbol, interval) # Create WebSocket service
@@ -21,4 +21,3 @@ class MarketDataChannel < ApplicationCable::Channel # ActionCable channel for re
     @ws_service&.disconnect # Disconnect WebSocket when client unsubscribes
   end
 end
-

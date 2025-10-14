@@ -7,7 +7,7 @@ export class ChartManager { // Manages chart initialization and updates
     this.lastCandle = null; // Store the last candle for updates
     this.initChart(); // Initialize the chart
   }
-  
+
   initChart() { // Initialize TradingView Lightweight Chart
     this.chart = LightweightCharts.createChart(this.container, { // Create chart with configuration
       layout: { // Layout configuration
@@ -36,7 +36,7 @@ export class ChartManager { // Manages chart initialization and updates
         axisPressedMouseMove: true, // Enable scaling with mouse
       },
     });
-    
+
     this.candleSeries = this.chart.addCandlestickSeries({ // Add candlestick series
       upColor: '#0ecb81', // Green color for up candles
       downColor: '#f6465d', // Red color for down candles
@@ -45,7 +45,7 @@ export class ChartManager { // Manages chart initialization and updates
       wickUpColor: '#0ecb81', // Green wick for up candles
       wickDownColor: '#f6465d', // Red wick for down candles
     });
-    
+
     // Handle window resize
     window.addEventListener('resize', () => { // Add resize event listener
       this.chart.applyOptions({ // Update chart dimensions
@@ -54,7 +54,7 @@ export class ChartManager { // Manages chart initialization and updates
       });
     });
   }
-  
+
   setData(data) { // Set initial chart data
     this.candleSeries.setData(data); // Load all candles at once
     if (data.length > 0) { // If data exists
@@ -62,10 +62,10 @@ export class ChartManager { // Manages chart initialization and updates
     }
     this.chart.timeScale().fitContent(); // Fit all content in view
   }
-  
+
   updateCandle(candle) { // Update the current candle in real-time
     if (!candle) return; // Exit if no candle data
-    
+
     if (candle.is_closed) { // If candle is closed
       // Add as new candle
       this.candleSeries.update(candle); // Add new candle to series
@@ -76,14 +76,14 @@ export class ChartManager { // Manages chart initialization and updates
       this.lastCandle = candle; // Update last candle reference
     }
   }
-  
+
   clear() { // Clear all chart data
     if (this.candleSeries) { // If series exists
       this.candleSeries.setData([]); // Clear all data
       this.lastCandle = null; // Reset last candle
     }
   }
-  
+
   destroy() { // Destroy chart instance
     if (this.chart) { // If chart exists
       this.chart.remove(); // Remove chart from DOM
@@ -92,4 +92,3 @@ export class ChartManager { // Manages chart initialization and updates
     }
   }
 }
-

@@ -3,4 +3,3 @@
 
 const channels = require.context('.', true, /_channel\.js$/) // Find all channel files
 channels.keys().forEach(channels) // Load each channel file
-

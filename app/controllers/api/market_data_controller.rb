@@ -4,11 +4,11 @@ module Api # API namespace module
       symbol = params[:symbol] || 'BTCUSDT' # Get symbol from params, default to BTCUSDT
       interval = params[:interval] || '1m' # Get interval from params, default to 1m
       limit = params[:limit]&.to_i || 500 # Get limit from params, default to 500 candles
-      
+
       begin
         service = BinanceService.new # Initialize Binance service
         candles = service.fetch_klines(symbol, interval, limit) # Fetch candlestick data
-        
+
         render json: { # Return JSON response with candle data
           success: true, # Success flag
           data: candles, # Array of candlestick data
@@ -24,4 +24,3 @@ module Api # API namespace module
     end
   end
 end
-

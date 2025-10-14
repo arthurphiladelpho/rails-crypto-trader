@@ -3,4 +3,3 @@ class HomeController < ApplicationController # Main controller for the trading c
     # No data needed here, everything loads via JavaScript
   end
 end
-

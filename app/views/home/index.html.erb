@@ -1,7 +1,7 @@
 <div class="trading-container"> <!-- Main container for trading interface -->
   <div class="trading-header"> <!-- Header section with controls -->
     <h1 class="trading-title">Real-Time Crypto Trading Chart</h1> <!-- Page title -->
-    
+
     <div class="controls"> <!-- Controls section for coin and timeframe selection -->
       <div class="control-group"> <!-- Coin selector group -->
         <label for="coin-selector">Coin:</label> <!-- Label for coin selector -->
@@ -15,7 +15,7 @@
           <option value="DOGEUSDT">DOGE</option> <!-- Dogecoin option -->
         </select>
       </div>
-      
+
       <div class="control-group"> <!-- Timeframe selector group -->
         <label>Timeframe:</label> <!-- Label for timeframe buttons -->
         <div class="timeframe-buttons"> <!-- Container for timeframe buttons -->
@@ -28,16 +28,16 @@
           <button class="timeframe-btn" data-interval="1w">1w</button> <!-- 1 week button -->
         </div>
       </div>
-      
+
       <div class="status-indicator"> <!-- Connection status indicator -->
         <span class="status-dot" id="status-dot"></span> <!-- Status dot (changes color) -->
         <span class="status-text" id="status-text">Connecting...</span> <!-- Status text -->
       </div>
     </div>
   </div>
-  
+
   <div id="chart-container" class="chart-container"></div> <!-- Container for TradingView chart -->
-  
+
   <div class="loading-overlay" id="loading-overlay"> <!-- Loading overlay shown during data fetch -->
     <div class="spinner"></div> <!-- Loading spinner -->
     <p>Loading chart data...</p> <!-- Loading text -->
@@ -45,4 +45,3 @@
 </div>
 
 <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script> <!-- TradingView Lightweight Charts library -->
-

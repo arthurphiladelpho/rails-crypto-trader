@@ -138,13 +138,13 @@ Configuration is in `config/initializers/binance.rb`:
 module BinanceConfig
   REST_API_URL = 'https://api.binance.com'
   WS_API_URL = 'wss://stream.binance.com:9443'
-  
+
   SYMBOLS = {
     'BTC' => 'BTCUSDT',
     'ETH' => 'ETHUSDT',
     # ... more symbols
   }
-  
+
   INTERVALS = ['1m', '5m', '15m', '1h', '4h', '1d', '1w']
 end
 ```
@@ -164,7 +164,7 @@ ActionCable configuration is in `config/cable.yml`:
    ```bash
    # Ubuntu/Debian
    sudo apt-get install redis-server
-   
+
    # macOS
    brew install redis
    ```

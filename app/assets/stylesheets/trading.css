@@ -192,18 +192,17 @@ body { /* Body styles */
   .trading-container { /* Container on mobile */
     padding: 10px; /* Reduced padding */
   }
-  
+
   .trading-title { /* Title on mobile */
     font-size: 20px; /* Smaller font */
   }
-  
+
   .controls { /* Controls on mobile */
     gap: 15px; /* Reduced gap */
   }
-  
+
   .timeframe-btn { /* Timeframe buttons on mobile */
     padding: 6px 12px; /* Reduced padding */
     font-size: 12px; /* Smaller font */
   }
 }
-

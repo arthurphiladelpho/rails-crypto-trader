@@ -4,4 +4,3 @@
 import { createConsumer } from "@rails/actioncable" // Import ActionCable consumer creator
 
 export default createConsumer() // Export default ActionCable consumer instance
-

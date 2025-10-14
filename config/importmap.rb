@@ -7,4 +7,3 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true # Pin
 pin_all_from "app/javascript/controllers", under: "controllers" # Pin all Stimulus controllers
 pin "@rails/actioncable", to: "actioncable.esm.js" # Pin ActionCable for WebSocket support
 pin_all_from "app/javascript/channels", under: "channels" # Pin all ActionCable channels
-
