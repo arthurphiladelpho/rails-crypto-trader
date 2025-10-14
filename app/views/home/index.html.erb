@@ -1,0 +1,48 @@
+<div class="trading-container"> <!-- Main container for trading interface -->
+  <div class="trading-header"> <!-- Header section with controls -->
+    <h1 class="trading-title">Real-Time Crypto Trading Chart</h1> <!-- Page title -->
+    
+    <div class="controls"> <!-- Controls section for coin and timeframe selection -->
+      <div class="control-group"> <!-- Coin selector group -->
+        <label for="coin-selector">Coin:</label> <!-- Label for coin selector -->
+        <select id="coin-selector" class="selector"> <!-- Dropdown for coin selection -->
+          <option value="BTCUSDT">BTC</option> <!-- Bitcoin option -->
+          <option value="ETHUSDT">ETH</option> <!-- Ethereum option -->
+          <option value="SOLUSDT">SOL</option> <!-- Solana option -->
+          <option value="BNBUSDT">BNB</option> <!-- Binance Coin option -->
+          <option value="XRPUSDT">XRP</option> <!-- Ripple option -->
+          <option value="ADAUSDT">ADA</option> <!-- Cardano option -->
+          <option value="DOGEUSDT">DOGE</option> <!-- Dogecoin option -->
+        </select>
+      </div>
+      
+      <div class="control-group"> <!-- Timeframe selector group -->
+        <label>Timeframe:</label> <!-- Label for timeframe buttons -->
+        <div class="timeframe-buttons"> <!-- Container for timeframe buttons -->
+          <button class="timeframe-btn active" data-interval="1m">1m</button> <!-- 1 minute button -->
+          <button class="timeframe-btn" data-interval="5m">5m</button> <!-- 5 minute button -->
+          <button class="timeframe-btn" data-interval="15m">15m</button> <!-- 15 minute button -->
+          <button class="timeframe-btn" data-interval="1h">1h</button> <!-- 1 hour button -->
+          <button class="timeframe-btn" data-interval="4h">4h</button> <!-- 4 hour button -->
+          <button class="timeframe-btn" data-interval="1d">1d</button> <!-- 1 day button -->
+          <button class="timeframe-btn" data-interval="1w">1w</button> <!-- 1 week button -->
+        </div>
+      </div>
+      
+      <div class="status-indicator"> <!-- Connection status indicator -->
+        <span class="status-dot" id="status-dot"></span> <!-- Status dot (changes color) -->
+        <span class="status-text" id="status-text">Connecting...</span> <!-- Status text -->
+      </div>
+    </div>
+  </div>
+  
+  <div id="chart-container" class="chart-container"></div> <!-- Container for TradingView chart -->
+  
+  <div class="loading-overlay" id="loading-overlay"> <!-- Loading overlay shown during data fetch -->
+    <div class="spinner"></div> <!-- Loading spinner -->
+    <p>Loading chart data...</p> <!-- Loading text -->
+  </div>
+</div>
+
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script> <!-- TradingView Lightweight Charts library -->
+

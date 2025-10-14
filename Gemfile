@@ -27,7 +27,13 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+gem "redis", ">= 4.0.1" # Required for ActionCable
+
+# WebSocket client for Binance API
+gem "websocket-client-simple", "~> 0.8.0" # For Binance WebSocket connection
+
+# HTTP client for Binance REST API
+gem "faraday", "~> 2.7" # For Binance REST API calls
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -59,4 +65,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-

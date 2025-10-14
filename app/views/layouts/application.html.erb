@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TraderApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <title>Real-Time Crypto Trading Chart</title> <!-- Page title -->
+    <meta name="viewport" content="width=device-width,initial-scale=1"> <!-- Responsive viewport -->
+    <%= csrf_meta_tags %> <!-- CSRF protection -->
+    <%= csp_meta_tag %> <!-- Content Security Policy -->
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %> <!-- Load application CSS -->
+    <%= javascript_importmap_tags %> <!-- Load JavaScript via importmap -->
   </head>
 
   <body>
-    <%= yield %>
+    <%= yield %> <!-- Render page content -->
   </body>
 </html>

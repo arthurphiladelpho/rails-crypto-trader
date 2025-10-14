@@ -1,0 +1,209 @@
+/* Trading chart page styles */
+* { /* Reset default styles */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding and border in element width */
+}
+
+body { /* Body styles */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* Modern font stack */
+  background-color: #131722; /* Dark background matching TradingView */
+  color: #d1d4dc; /* Light text color */
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.trading-container { /* Main container */
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack children vertically */
+  height: 100vh; /* Full viewport height */
+  padding: 20px; /* Add padding around container */
+}
+
+.trading-header { /* Header section */
+  margin-bottom: 20px; /* Space below header */
+}
+
+.trading-title { /* Page title */
+  font-size: 24px; /* Large font size */
+  font-weight: 600; /* Semi-bold font */
+  margin-bottom: 15px; /* Space below title */
+  color: #ffffff; /* White text */
+}
+
+.controls { /* Controls section */
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically centered */
+  gap: 30px; /* Space between control groups */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.control-group { /* Individual control group */
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically centered */
+  gap: 10px; /* Space between label and control */
+}
+
+.control-group label { /* Labels for controls */
+  font-size: 14px; /* Medium font size */
+  font-weight: 500; /* Medium font weight */
+  color: #b2b5be; /* Muted text color */
+}
+
+.selector { /* Dropdown selector */
+  padding: 8px 12px; /* Add padding inside selector */
+  background-color: #1e222d; /* Dark background */
+  border: 1px solid #2a2e39; /* Dark border */
+  border-radius: 4px; /* Rounded corners */
+  color: #d1d4dc; /* Light text */
+  font-size: 14px; /* Medium font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.2s ease; /* Smooth transitions */
+}
+
+.selector:hover { /* Selector hover state */
+  border-color: #4a90e2; /* Blue border on hover */
+}
+
+.selector:focus { /* Selector focus state */
+  outline: none; /* Remove default outline */
+  border-color: #4a90e2; /* Blue border on focus */
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2); /* Blue glow on focus */
+}
+
+.timeframe-buttons { /* Timeframe buttons container */
+  display: flex; /* Use flexbox layout */
+  gap: 5px; /* Small gap between buttons */
+}
+
+.timeframe-btn { /* Timeframe button */
+  padding: 8px 16px; /* Add padding inside button */
+  background-color: #1e222d; /* Dark background */
+  border: 1px solid #2a2e39; /* Dark border */
+  border-radius: 4px; /* Rounded corners */
+  color: #b2b5be; /* Muted text color */
+  font-size: 13px; /* Small font size */
+  font-weight: 500; /* Medium font weight */
+  cursor: pointer; /* Pointer cursor */
+  transition: all 0.2s ease; /* Smooth transitions */
+}
+
+.timeframe-btn:hover { /* Button hover state */
+  background-color: #2a2e39; /* Lighter background on hover */
+  border-color: #4a90e2; /* Blue border on hover */
+  color: #d1d4dc; /* Lighter text on hover */
+}
+
+.timeframe-btn.active { /* Active button state */
+  background-color: #4a90e2; /* Blue background */
+  border-color: #4a90e2; /* Blue border */
+  color: #ffffff; /* White text */
+}
+
+.status-indicator { /* Status indicator */
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically centered */
+  gap: 8px; /* Space between dot and text */
+  margin-left: auto; /* Push to right side */
+}
+
+.status-dot { /* Status indicator dot */
+  width: 10px; /* Dot width */
+  height: 10px; /* Dot height */
+  border-radius: 50%; /* Make it circular */
+  background-color: #f0b90b; /* Yellow color for connecting */
+  animation: pulse 1.5s ease-in-out infinite; /* Pulsing animation */
+}
+
+.status-dot.connected { /* Connected state */
+  background-color: #0ecb81; /* Green color */
+  animation: none; /* No animation when connected */
+}
+
+.status-dot.error { /* Error state */
+  background-color: #f6465d; /* Red color */
+  animation: none; /* No animation on error */
+}
+
+.status-text { /* Status text */
+  font-size: 13px; /* Small font size */
+  color: #b2b5be; /* Muted text color */
+}
+
+@keyframes pulse { /* Pulsing animation for status dot */
+  0%, 100% { /* Start and end states */
+    opacity: 1; /* Full opacity */
+  }
+  50% { /* Middle state */
+    opacity: 0.5; /* Half opacity */
+  }
+}
+
+.chart-container { /* Chart container */
+  flex: 1; /* Take remaining vertical space */
+  background-color: #131722; /* Dark background */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Hide overflow */
+  position: relative; /* For absolute positioning of children */
+}
+
+.loading-overlay { /* Loading overlay */
+  position: absolute; /* Position absolutely */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  right: 0; /* Align to right */
+  bottom: 0; /* Align to bottom */
+  background-color: rgba(19, 23, 34, 0.95); /* Semi-transparent dark background */
+  display: flex; /* Use flexbox layout */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  z-index: 1000; /* Place above chart */
+  transition: opacity 0.3s ease; /* Smooth fade transition */
+}
+
+.loading-overlay.hidden { /* Hidden state */
+  opacity: 0; /* Transparent */
+  pointer-events: none; /* Don't capture mouse events */
+}
+
+.spinner { /* Loading spinner */
+  width: 50px; /* Spinner width */
+  height: 50px; /* Spinner height */
+  border: 3px solid #2a2e39; /* Dark border */
+  border-top-color: #4a90e2; /* Blue top border */
+  border-radius: 50%; /* Make it circular */
+  animation: spin 1s linear infinite; /* Spinning animation */
+  margin-bottom: 15px; /* Space below spinner */
+}
+
+@keyframes spin { /* Spinning animation */
+  to { /* End state */
+    transform: rotate(360deg); /* Rotate full circle */
+  }
+}
+
+.loading-overlay p { /* Loading text */
+  font-size: 14px; /* Medium font size */
+  color: #b2b5be; /* Muted text color */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) { /* Mobile breakpoint */
+  .trading-container { /* Container on mobile */
+    padding: 10px; /* Reduced padding */
+  }
+  
+  .trading-title { /* Title on mobile */
+    font-size: 20px; /* Smaller font */
+  }
+  
+  .controls { /* Controls on mobile */
+    gap: 15px; /* Reduced gap */
+  }
+  
+  .timeframe-btn { /* Timeframe buttons on mobile */
+    padding: 6px 12px; /* Reduced padding */
+    font-size: 12px; /* Smaller font */
+  }
+}
+
